@@ -1,0 +1,32 @@
+---
+AllCops:
+  inherit_mode:
+    merge:
+    - Exclude
+    - Include
+  DisplayCopNames: true
+  Exclude:
+  - db/schema.rb
+  - tmp/**/*
+  NewCops: enable
+  StyleGuideBaseURL: https://rubystyle.guide
+  TargetRubyVersion: 3.0
+Layout/LineLength:
+  Max: 120
+Metrics/BlockLength:
+  AllowedMethods:
+  - class_methods
+  - context
+  - define
+  - describe
+  - namespace
+RSpec/NestedGroups:
+  Max: 5
+Style/Documentation:
+  Enabled: false
+require:
+- rubocop-rails
+- rubocop-rake
+- rubocop-rspec
+RSpec/MultipleMemoizedHelpers:
+  Max: 15
