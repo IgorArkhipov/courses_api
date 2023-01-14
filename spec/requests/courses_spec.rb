@@ -74,7 +74,7 @@ RSpec.describe 'Courses' do
     context 'when creating a course' do
       let(:author) { User.find_by(is_author: true) }
       let(:valid_params) do
-        '{"data":{"type":"courses","relationships":{"author":{"data":{"type":"users","id":' \
+        '{"data":{"type":"courses","relationships":{"author":{"data":{"type":"authors","id":' \
           "\"#{author.id}\"}}},\"attributes\":{\"title\":\"Tttest\"}}}"
       end
 

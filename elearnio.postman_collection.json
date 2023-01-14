@@ -138,7 +138,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:3000/courses/1/talents",
+							"raw": "http://localhost:3000/courses/2/talents",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -146,7 +146,7 @@
 							"port": "3000",
 							"path": [
 								"courses",
-								"1",
+								"2",
 								"talents"
 							]
 						}
@@ -218,7 +218,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\"data\":{\"type\":\"courses\",\"relationships\":{\"author\":{\"data\":{\"type\":\"users\",\"id\":1}}},\"attributes\":{\"title\":\"Tttest\"}}}"
+							"raw": "{\"data\":{\"type\":\"courses\",\"relationships\":{\"author\":{\"data\":{\"type\":\"authors\",\"id\":1}}},\"attributes\":{\"title\":\"Tttest\"}}}"
 						},
 						"url": {
 							"raw": "http://localhost:3000/courses",
@@ -278,10 +278,10 @@
 			]
 		},
 		{
-			"name": "users",
+			"name": "authors",
 			"item": [
 				{
-					"name": "GET users",
+					"name": "GET authors",
 					"protocolProfileBehavior": {
 						"disabledSystemHeaders": {
 							"accept": true
@@ -302,21 +302,21 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:3000/users",
+							"raw": "http://localhost:3000/authors",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
-								"users"
+								"authors"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "GET user",
+					"name": "GET author",
 					"protocolProfileBehavior": {
 						"disabledSystemHeaders": {
 							"accept": true
@@ -337,14 +337,14 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:3000/users/1",
+							"raw": "http://localhost:3000/authors/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
-								"users",
+								"authors",
 								"1"
 							]
 						}
@@ -352,7 +352,7 @@
 					"response": []
 				},
 				{
-					"name": "GET authored courses by user",
+					"name": "GET authored courses by author",
 					"protocolProfileBehavior": {
 						"disabledSystemHeaders": {
 							"accept": true
@@ -373,14 +373,14 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:3000/users/3/authored-courses",
+							"raw": "http://localhost:3000/authors/3/authored-courses",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
-								"users",
+								"authors",
 								"3",
 								"authored-courses"
 							]
@@ -389,7 +389,134 @@
 					"response": []
 				},
 				{
-					"name": "GET courses taken by user",
+					"name": "PUT author",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.api+json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"data\":{\"id\":1,\"type\":\"authors\",\"attributes\":{\"name\":\"TTnew\"}}}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/authors/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"authors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST author",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.api+json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"data\":{\"type\":\"authors\",\"attributes\":{\"name\":\"Tttest\",\"email\":\"ttest@mail.com\"}}}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/authors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"authors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE author",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.api+json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/authors/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"authors",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "talents",
+			"item": [
+				{
+					"name": "GET talents",
 					"protocolProfileBehavior": {
 						"disabledSystemHeaders": {
 							"accept": true
@@ -410,14 +537,85 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:3000/users/5/courses",
+							"raw": "http://localhost:3000/talents",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
-								"users",
+								"talents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET talent",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.api+json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/talents/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"talents",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET courses taken by talent",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.api+json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/talents/5/courses",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"talents",
 								"5",
 								"courses"
 							]
@@ -449,17 +647,17 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\"data\":{\"id\":1,\"type\":\"users\",\"attributes\":{\"name\":\"TTnew\"}}}"
+							"raw": "{\"data\":{\"id\":1,\"type\":\"talents\",\"attributes\":{\"name\":\"TTnew\"}}}"
 						},
 						"url": {
-							"raw": "http://localhost:3000/users/1",
+							"raw": "http://localhost:3000/talents/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
-								"users",
+								"talents",
 								"1"
 							]
 						}
@@ -490,17 +688,17 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\"data\":{\"type\":\"users\",\"attributes\":{\"name\":\"Tttest\",\"email\":\"ttest@mail.com\",\"is-author\":false}}}"
+							"raw": "{\"data\":{\"type\":\"talents\",\"attributes\":{\"name\":\"Tttest\",\"email\":\"ttest@mail2.com\"}}}"
 						},
 						"url": {
-							"raw": "http://localhost:3000/users",
+							"raw": "http://localhost:3000/talents",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
-								"users"
+								"talents"
 							]
 						}
 					},
@@ -533,15 +731,15 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:3000/users/6",
+							"raw": "http://localhost:3000/talents/16",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
-								"users",
-								"6"
+								"talents",
+								"16"
 							]
 						}
 					},
